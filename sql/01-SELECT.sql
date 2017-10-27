@@ -187,21 +187,139 @@ FROM
 
 
 -- Zadatak: Selektuj prvih 5 najskupljih mobilnih telefona (LIMIT)
--- Zadatak: Selektuj drugih 5 najskupljih mobilnih telefona (LIMIT OFFSET
+SELECT 
+* 
+FROM 
+    `products`
+WHERE category='Mobilni Telefon'
+ ORDER BY  
+    price DESC
+LIMIT 5;
 
+--Zadatak:Selektuj prva tri najskuplja televizora  kojih ima na stanju 
+SELECT 
+* 
+FROM 
+    `products`
+WHERE category='Televizor' AND quantity>0
+ ORDER BY  
+    price DESC
+LIMIT 3;
+
+
+-- Zadatak: Selektuj drugih 5 najskupljih mobilnih telefona (LIMIT OFFSET
+SELECT 
+* 
+FROM 
+    `products`
+WHERE category='Mobilni Telefon'
+ ORDER BY  
+    price DESC
+LIMIT  5  
+OFFSET 5;
 
 -- Agregatne funkcije
 -- Zadatak: Selektuj ukupan broj proizvoda (COUNT)
+SELECT 
+    COUNT(id)
+FROM 
+    `products`;
+
+
 -- Zadatak: Selektuj ukupan broj proizvoda koji su mobilni telefoni (COUNT WHERE)
+SELECT 
+    COUNT(id) AS ukupno_mobilnih_telefona
+
+FROM 
+    `products`
+WHERE 
+category='Mobilni Telefon';
+
 -- Zadatak: Selektuj koliko ima komada mobilnih telefona marke 'Samsung' (SUM)
+SELECT 
+   SUM(quantity)
+
+
+FROM 
+   `products`
+WHERE 
+category='Mobilni Telefon' AND brand='Samsung';
+
+
 -- Zadatak: Selektuj sve kategorije koje se pojavljuju (DISTINCT)
+SELECT 
+   DISTINCT category
+FROM
+    `products`;
 
 -- Agregatne funkcije sa GROUP BY
--- Zadatak: Selektuj broj proizvoda po kategorijama (COUNT GROUP BY)
--- Zadatak: Selektuj broj komada proizvoda po kategorijama (SUM GROUP BY)
--- Zadatak: Selektuj brendove koji imaju vise od 5 proizvoda (GROUP BY HAVING)
--- Zadatak: Selektuj brendove koji imaju vise od 5 proizvoda sortiranih po broju proizvoda opadajuce (GROUP BY HAVING, aggregate function u ORDER BY-u)
 
+--prethodni zadatak koriscenje GROUP BY
+SELECT 
+    category,brand
+FROM 
+    products
+GROUP BY category,brand;
+
+
+--grupisanje po ategoriji i brendu,tj  kombinacija kategorija i brendova koji se dobiju
+SELECT 
+    category,brand
+FROM 
+    products
+GROUP BY category,brand;
+
+
+-- Zadatak: Selektuj broj proizvoda po kategorijama (COUNT GROUP BY)
+SELECT 
+    category,
+   COUNT(id)
+FROM 
+    products
+GROUP BY 
+category;
+
+-- Zadatak: Selektuj broj komada proizvoda po kategorijama (SUM GROUP BY)
+
+SELECT 
+    category,
+   SUM(quantity)
+FROM 
+    products
+GROUP BY 
+category;
+
+--ispisati kategorije i broj proizvoda u kategoriji i broj komada 
+SELECT 
+    category,
+   SUM(quantity),
+    COUNT(id)
+FROM 
+    products
+GROUP BY 
+category;
+-- Zadatak: Selektuj brendove koji imaju vise od 5 proizvoda (GROUP BY HAVING)
+SELECT 
+    brand,
+    COUNT(id)
+FROM
+    products
+GROUP BY
+brand
+HAVING 
+    COUNT(id)>5;
+-- Zadatak: Selektuj brendove koji imaju vise od 3 proizvoda sortiranih po broju proizvoda opadajuce (GROUP BY HAVING, aggregate function u ORDER BY-u)
+SELECT 
+    brand,
+    COUNT(id)
+FROM
+    products
+GROUP BY
+    brand
+HAVING 
+    COUNT(id)>3
+ORDER BY
+COUNT(id) DESC;
 
 
 
