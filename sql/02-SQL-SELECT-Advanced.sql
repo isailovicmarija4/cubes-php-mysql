@@ -135,4 +135,4 @@ WHERE brand IN(SELECT brand FROM  `products` GROUP BY brand HAVING COUNT(id)>5);
 SELECT category FROM `products` GROUP BY category ORDER BY COUNT(id) DESC  LIMIT 1;--LIMIT ne sme u podupit trazi nov nacin!!!!!!!!!!!
 
 
-
+ 
