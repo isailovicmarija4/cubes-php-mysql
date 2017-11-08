@@ -1,21 +1,7 @@
 <?php
-
-$link = mysqli_connect('127.0.0.1','cubes','cubes','cubesphp');
-if($link === false){
-    die('MYSQL ERROR :' . mysqli_connect_error());
-}
-$query="SELECT * FROM brands";
-$result = mysqli_query($link, $query);
-
-
-if($result===false){ 
-    die('MYSQL ERROR :' . mysqli_error($link));
-    
-}
-$brands = mysqli_fetch_all($result,MYSQLI_ASSOC);
-
-
-
+session_start(); 
+require_once __DIR__ . '/models/m_brands.php';
+$brands= brandsFetchAll();
 
 
 
