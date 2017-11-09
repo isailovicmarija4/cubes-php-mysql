@@ -1,8 +1,7 @@
 <?php
-session_start(); 
+session_start();
+
 require_once __DIR__ . '/models/m_brands.php';
-
-
 
 if (empty($_GET['id'])) {
 	die('Morate proslediti id');
@@ -10,7 +9,8 @@ if (empty($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
-$brand= brandsFetchOneById($id);//vraca null ako ne postoji red
+$brand = brandsFetchOneById($id);
+
 if (empty($brand)) {
 	die('Trazeni brand ne postoji');
 }
@@ -59,20 +59,8 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 	//Ukoliko nema gresaka 
 	if (empty($formErrors)) {
 		//Uradi akciju koju je korisnik trazio
-             brandsUpdateOneById($brand['id'], $formData);
-                
-            
-            
-//		
-//		$query = "UPDATE brands SET ";
-//		$query .= "title = '" . mysqli_real_escape_string($link, $formData['title']) . "',";
-//		$query .= "website_url = '" . mysqli_real_escape_string($link, $formData['website_url']) . "' ";
-//		$query .= "WHERE id = '" . mysqli_real_escape_string($link, $brand['id']) . "'";
-//		
-//		$result = mysqli_query($link, $query);
-//		if ($result === false) {
-//			die('MySQL error: ' . mysqli_error($link));
-//		}
+		
+		brandsUpdateOneById($brand['id'], $formData);
 		
 		header('Location: /crud-brand-list.php');
 		die();

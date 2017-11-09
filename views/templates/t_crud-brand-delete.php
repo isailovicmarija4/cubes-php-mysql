@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-                                                    CRUD Brand - Delete brand #<?php echo htmlspecialchars($brand['id']);?>
+							CRUD Brand - Delete brand #<?php echo htmlspecialchars($brand['id']);?>
 						</h2>
 					</div>
 				</div>

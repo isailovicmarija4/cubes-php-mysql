@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2017 at 03:55 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Nov 09, 2017 at 10:13 AM
+-- Server version: 10.1.25-MariaDB-1
+-- PHP Version: 7.1.8-1ubuntu1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -44,12 +42,12 @@ INSERT INTO `brands` (`id`, `title`, `website_url`) VALUES
 (3, 'Bosh', ''),
 (4, 'Gorenje', ''),
 (5, 'HTC', ''),
-(6, 'Huawei', ''),
+(6, 'Huawei', 'http://cubes.edu.rs'),
 (7, 'LG', ''),
 (8, 'Samsung', ''),
 (9, 'Sony', ''),
 (16, 'Siemens', ''),
-(17, 'Vivax', '');
+(17, 'Vivax', 'http://cubes.edu.rs');
 
 -- --------------------------------------------------------
 
@@ -93,10 +91,9 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id`, `title`) VALUES
-(1, 'Mobilni Uredjaj'),
+(1, 'Mobilni Uredjaji'),
 (2, 'Bela Tehnika'),
-(3, 'Racunari'),
-(7, 'Group title');
+(3, 'Racunari');
 
 -- --------------------------------------------------------
 
@@ -172,10 +169,10 @@ INSERT INTO `products` (`id`, `brand_id`, `title`, `description`, `specification
 (39, 1, 'iPhone6 S', 'iPhone6 S', '', '39999.99', 12, 1, 0, '0.00', '2016-03-21 18:00:00'),
 (40, 1, 'iPhone6 SE', 'iPhone6 SE', '', '37999.99', 11, 1, 0, '0.00', '2016-03-21 18:00:00'),
 (41, 1, 'iPhone5', 'iPhone5', '', '32999.99', 10, 1, 0, '0.00', '2016-03-21 18:00:00'),
-(42, NULL, 'Masina za sivenje', 'Masina za sivenje', 'Masina za sivenje', '1200.00', 1, NULL, 0, '0.00', '2017-11-13 08:22:20'),
-(43, NULL, 'Televizor 8X56P', 'Televizor 8X56P', NULL, '11800.00', 36, 2, 0, '0.00', '2017-11-20 07:19:15'),
-(44, 1, 'iPod Nano', 'iPod Nano', NULL, '9800.00', 3, NULL, 0, '0.00', '2017-11-14 05:12:12'),
-(45, 2, 'Pegla 1200W', 'Pegla 1200W', NULL, '3200.00', 1, 99, 0, '0.00', '2017-11-14 08:19:18');
+(42, NULL, 'Masina za sivenje', 'Masina za sivenje', 'Masina za sivenje', '1200.00', 1, NULL, 0, '0.00', '2017-10-28 13:21:00'),
+(43, NULL, 'Televizor 8X56P', 'Televizor 8X56P', NULL, '11800.00', 36, 2, 0, '0.00', '2017-10-28 13:21:00'),
+(44, 1, 'iPod Nano', 'iPod Nano', NULL, '9800.00', 3, NULL, 0, '0.00', '2017-10-28 13:21:00'),
+(45, 2, 'Pegla 1200W', 'Pegla 1200W', NULL, '3200.00', 1, 99, 0, '0.00', '2017-10-28 13:21:00');
 
 -- --------------------------------------------------------
 
@@ -196,14 +193,12 @@ CREATE TABLE `product_tags` (
 INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 (1, 39, 1),
 (2, 39, 2),
-(3, 39, 5),
+(3, 39, 4),
 (4, 22, 2),
-(5, 22, 5),
-(6, 22, 2),
-(7, 22, 5),
-(8, 31, 4),
-(10, 11, 2),
-(11, 11, 3);
+(5, 22, 4),
+(6, 31, 5),
+(7, 11, 2),
+(8, 11, 3);
 
 -- --------------------------------------------------------
 
@@ -221,11 +216,11 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`id`, `title`) VALUES
-(1, 'Najprodavaniji'),
-(2, 'Ekstra Kvalitet'),
-(3, 'Pobednik Sajma Tehnike'),
-(4, 'Garancija 5 Godina'),
-(5, 'Garancija 2 Godine');
+(1, 'Najprodavanije'),
+(2, 'Ekstra kvalitet'),
+(3, 'Pobednik sajma tehnike'),
+(4, 'Garancija 2 god.'),
+(5, 'Garancija 5 god.');
 
 --
 -- Indexes for dumped tables
@@ -283,7 +278,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `categories`
 --
@@ -293,7 +288,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `polaznici`
 --
@@ -308,13 +303,12 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

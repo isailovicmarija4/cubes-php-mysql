@@ -4,16 +4,18 @@
  * @return resource
  */
 function dbGetLink() {
-    static $link;
-    if(!isset($link)){
-        $link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubesphp');
-		
-	if (!$link) {
-		die('MySQL Connect Error: ' . mysqli_connect_error());
-	}
-    }
 	
+	static $link;
+	
+	if (!isset($link)) {
 		
+		$link = mysqli_connect('127.0.0.1', 'cubes', 'cubes', 'cubesphp');
+		
+		if (!$link) {
+			die('MySQL Connect Error: ' . mysqli_connect_error());
+		}
+	}
+	
 	return $link;
 }
 
@@ -79,7 +81,7 @@ function dbLastInsertId() {
  * 
  * @param string $query
  * @return mixed Return first column of first row in row set. Useful for COUNT functions
- *///prva kolona iz prvog reda
+ */
 function dbFetchColumn($query) {
 	
 	$result = dbQuery($query);

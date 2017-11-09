@@ -1,5 +1,6 @@
 <?php
-session_start(); 
+session_start();
+
 require_once __DIR__ . '/models/m_brands.php';
 
 //ovde se prihvataju vrednosti polja, popisati sve kljuceve i pocetne vrednosti
@@ -46,7 +47,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	if (empty($formErrors)) {
 		//Uradi akciju koju je korisnik trazio
 		
-		$newBrandId=brandsInsertOne($formData);
+		$newBrandId = brandsInsertOne($formData);
 		
 		header('Location: /crud-brand-list.php');
 		die();
@@ -54,6 +55,6 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 }
 
 
-require_once __DIR__ .'/views/layout/header.php';
-require_once __DIR__ .'/views/templates/t_crud-brand-insert.php';
-require_once __DIR__ .'/views/layout/footer.php';
+require_once __DIR__ . '/views/layout/header.php';
+require_once __DIR__ . '/views/templates/t_crud-brand-insert.php';
+require_once __DIR__ . '/views/layout/footer.php';
