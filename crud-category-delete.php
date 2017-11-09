@@ -14,7 +14,13 @@ $category = categoriesFetchOneById($id);
 if (empty($category)) {
 	die('Izabrali ste nepostojecu kategoriju');
 }
+if (isset($_POST["task"]) && $_POST["task"] == "delete") {
+	
+	categoriesDeleteOneById($id);
 
+	header('Location: /crud-category-list.php');
+	die();
+}
 
 require_once __DIR__ . '/views/layout/header.php';
 require_once __DIR__ . '/views/templates/t_crud-category-delete.php';
