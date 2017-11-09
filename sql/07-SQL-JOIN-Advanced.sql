@@ -1,4 +1,4 @@
--- Kreirati tabelu groups sa poljima id i title i preneti njen primarni kljuc u tabelu categories pod nazivom group_id 
+u-- Kreirati tabelu groups sa poljima id i title i preneti njen primarni kljuc u tabelu categories pod nazivom group_id 
 
 -- Napisati upit koji ispisuje proizvode zajedno sa kategorijom i grupom
 SELECT
