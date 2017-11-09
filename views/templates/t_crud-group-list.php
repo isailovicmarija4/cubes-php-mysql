@@ -39,9 +39,9 @@
 
 
                         <?php for ($i = 1; $i <= 10; $i ++) { ?>
-                     <?php if (isset($groups[$i - 1]['id'])) { ?>
-                            <tr>
-                                
+                            <?php if (isset($groups[$i - 1]['id'])) { ?>
+                                <tr>
+
                                     <td>
                                         #<?php echo $i; ?>
                                     </td>
@@ -56,9 +56,9 @@
                                             <a href="/crud-group-delete.php?id=<?php echo $groups[$i - 1]['id']; ?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
-                                   
-                            </tr> 
-                        <?php } ?> <?php } ?>
+
+                                </tr> 
+                            <?php } ?> <?php } ?>
                 </table>
             </div>
         </div>
