@@ -87,3 +87,14 @@ function brandsGetCount() {
 	
 	return dbFetchColumn($query);
 }
+function brandsGetList(){
+    $query="SELECT `brands`.* FROM `brands` ORDER BY `brands`.`title`";
+        $brands= dbFetchAll($query);
+         $brandList=[];//ozanaka za prazan niz
+    foreach($brands as $brand){
+
+        $brandList[$brand['id']]=$brand['title'];
+    }
+    return $brandList;
+    
+}
