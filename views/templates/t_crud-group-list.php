@@ -38,27 +38,26 @@
                     <tbody>
 
 
-                        <?php for ($i = 1; $i <= 10; $i ++) { ?>
-                            <?php if (isset($groups[$i - 1]['id'])) { ?>
+                     <?php foreach ($groups as $group) {?>
                                 <tr>
 
                                     <td>
-                                        #<?php echo $i; ?>
+                                        #<?php echo htmlspecialchars($group['id']);?>
                                     </td>
 
                                     <td>
-                                        <?php echo $groups[$i - 1]['title']; ?>
+                                        <?php echo htmlspecialchars($group['title']);?>
                                     </td> 
 
                                     <td class="text-center">
                                         <div class="btn-group">
-                                            <a href="/crud-group-edit.php?id=<?php echo $groups[$i - 1]['id']; ?>" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                                            <a href="/crud-group-delete.php?id=<?php echo $groups[$i - 1]['id']; ?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
+                                            <a href="/crud-group-edit.php?id=<?php echo htmlspecialchars($group['id']); ?>" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                            <a href="/crud-group-delete.php?id=<?php echo htmlspecialchars($group['id']); ?>" class="btn btn-default"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
 
                                 </tr> 
-                            <?php } ?> <?php } ?>
+                            <?php } ?> 
                 </table>
             </div>
         </div>
