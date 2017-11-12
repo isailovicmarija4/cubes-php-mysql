@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Product - Edit product #
+							CRUD Product - Edit product 
 						</h2>
 					</div>
 				</div>
@@ -149,16 +149,10 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label">Change Photo</label>  
 									<div class="col-md-5">
-										<input type="file" name="photo" class="form-control">
+										<input type="file"  class="form-control">
 									</div>
 									<div class="col-md-4">
-										<?php if (!empty($formErrors["photo"])) { ?>
-											<ul style="color: red">
-												<?php foreach ($formErrors["photo"] as $errorMessage) { ?>
-													<li class="error"><?php echo $errorMessage; ?></li>
-												<?php } ?>
-											</ul>
-										<?php } ?>
+										
 									</div>
 								</div>
 							</fieldset>
