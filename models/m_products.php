@@ -101,3 +101,10 @@ function productsGetCount() {
 	
 	return dbFetchColumn($query);
 }
+function productsUpdatePhotoFileName($id,$photoFileName){
+    $query="UPDATE `products` SET "
+            . " `photo_file_name`='" . dbEscape($photoFileName) . "'  "
+            . "WHERE id='" . dbEscape($id) . "'";
+   return dbQuery($query);
+    
+}
