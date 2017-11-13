@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 09, 2017 at 10:13 AM
--- Server version: 10.1.25-MariaDB-1
--- PHP Version: 7.1.8-1ubuntu1
+-- Host: 127.0.0.1
+-- Generation Time: Nov 13, 2017 at 11:54 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -39,15 +41,15 @@ CREATE TABLE `brands` (
 INSERT INTO `brands` (`id`, `title`, `website_url`) VALUES
 (1, 'Apple', ''),
 (2, 'Beko', ''),
-(3, 'Bosh', ''),
-(4, 'Gorenje', ''),
+(3, 'Bosh aa', 'http://cubes.edu.rs'),
+(4, 'Gorenje2', ''),
 (5, 'HTC', ''),
-(6, 'Huawei', 'http://cubes.edu.rs'),
+(6, 'Huawei', ''),
 (7, 'LG', ''),
 (8, 'Samsung', ''),
 (9, 'Sony', ''),
 (16, 'Siemens', ''),
-(17, 'Vivax', 'http://cubes.edu.rs');
+(17, 'Vivax', '');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `description`, `group_id`) VALUES
-(1, 'Mobilni Telefon', '', 1),
+(1, 'Mobilni Telefonaa', '', 1),
 (2, 'Televizor', '', 2),
 (3, 'Frizider', '', 2),
 (4, 'Ves Masina', '', 2),
@@ -91,9 +93,40 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id`, `title`) VALUES
-(1, 'Mobilni Uredjaji'),
+(1, 'Mobilni Uredjaj'),
 (2, 'Bela Tehnika'),
 (3, 'Racunari');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text,
+  `content` longtext,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `section_id`, `title`, `description`, `content`, `created_at`) VALUES
+(3183, 6, 'Blic', 'Dinar danas u blagom rastu, kurs 119,40\'', 'Dinar ?e danas oja?ati prema evru za 0,1 odsto u odnosu na danas i zvani?ni srednji kurs iznosi?e 119,4013 dinara za evro, objavila je Narodna banka Srbije.\', \'http://www.blic.rs/vesti/ekonomija/dinar-danas-u-blagom-rastu-kurs-11940/nf786rr\')', '2017-10-26 09:19:16'),
+(3184, 5, 'B92', 'Ove sobne biljke čuvaju zdravlje', 'Naučnici NASA su u saradnji sa Američkim koledžom ispitali koje kućne biljke su korisne u prevenciji određenih zdravstvenih problema.\', \'http://www.b92.net/zdravlje/vesti.php?yyyy=2017&mm=10&nav_id=1318401', '2017-08-15 18:17:13'),
+(3185, 4, 'Kurir', 'SINGAPUR IMA NAJVREDNIJI PASOŠ NA SVETU: A evo na kom je mestu Srbija', 'Prema najnovijim podacima organizacije Pasport indeks, najvredniji pasoš na svetu trenutno je pasoš malene države Singapur čiji državljani mogu da putuju u ogroman broj država bez vize. Organizacija Pasport indeks koja istražuje mogućnosti tih dokumenata na ...\', \'http://www.kurir.rs/planeta/2930025/singapur-ima-najvredniji-pasos-na-svetu-a-evo-na-kom-je-mest', '2017-10-06 14:07:10'),
+(3186, 3, 'Kurir', 'PREOKRETOM DO POBEDE: Srpski rukometaši savladali Austriju', 'Rukometna reprezentacija Srbije savladala je selekciju Austrije 34:32 (15:19) u prvom prijateljskom odmeravanju snaga u Tulnu.\', \'http://www.kurir.rs/sport/ostali-sportovi/2930755/preokretom-do-pobede-srpski-rukometasi-savladali-austriju', '2017-10-24 13:17:13'),
+(3187, 3, 'Blic', 'IZ MINUTA U MINUT Zvezda - Makabi 87:84', 'Košarkaši Crvene zvezde savladali su Makabi sa 87:84 u 4. kola Evrolige a zbivanja sa utakmice u beogradskoj Areni mogli ste da pratite uživo uz Blicsport.\', \'http://sport.blic.rs/evroliga-1718/iz-minuta-u-minut-zvezda-makabi-8784/ec776xn', '2017-10-09 21:51:35'),
+(3188, 2, 'Blic', 'NAJBRŽA ŽIVOTINJA NA KOPNU Gepard je brži i od \\\"poršea\\', 'Ova mačka je najbrža životinja na kopnu. Tri puta je lakši od tigra, može da pređe 29 metara u samo jednoj sekundi. Ženke žive same, a mužjaci u čoporu. Nemaju instinkt za ubijanjem čim se rode, ali predatori postaju već sa dva meseca\', \'http://www.blic.rs/slobodno-vreme/najbrza-zivotinja-na-kopnu-gepard-je-brzi-i-od-porsea/dklv6ws', '2017-09-11 11:25:19'),
+(3189, 2, 'Blic', 'Ajnštajnove beleške o TAJNI SREĆE vrede 1,56 miliona dolara', 'Rukom napisana poruka fizičara Alberta Ajnštajna o tajni sreće prodata je danas na aukciji u Jerusalimu za 1,56 milion dolara, a bila je procenjena na između 5.000 i 8.000 dolara, saopštila je aukcijska kuća preko interneta.\', \'http://www.blic.rs/slobodno-vreme/vesti/ajnstajnove-beleske-o-tajni-srece-vrede-156-miliona-dolara/7qjzpme', '2017-10-03 09:13:10'),
+(3190, 6, 'B92', 'U GSP novi validatori, spremite i platne kartice', 'Do kraja godine vožnja u gradskom prevozu će moći da se plaća bezkontaktnim platnim karticama, izjavio je gradski menadžer Goran Vesić.\\\"Kako bi se povećao udeo bezgotovinskog plaćanja, Grad je preduzeo niz aktivnosti. Do kraja godine ćemo početi da primamo beskontaktne platne kartice u javnom prevozu. I ta kartica će postati i platna kartica\\\", rekao je Vesić i napomenuo da u Beogradu više od 500.000 ljudi koristi Bus plus karticu za vožnju.\', \'http://www.b92.net/biz/vesti/srbija.php?yyyy=2017&mm=10&dd=25&nav_id=1318050', '2017-09-04 13:07:05'),
+(3191, 1, 'Novosti', '\"Muzej umetnosti\\\" jedan od najluksuznijih naslova (VIDEO)', 'TEŠKA oko 10 kilograma, visoka 42, a široka 32,5 santimetara, na gotovo 1.000 strana, sa više od 2.700 reprezentativnih umetničkih dela iz 650 zemalja, knjiga \\\"Muzej umetnosti\\\", sigurno je jedan od najluksuznijih naslova ovogodišnjeg Sajma. Prvo izdanje na srpskom jeziku, jednog od najambicioznijih svetskih izdavačkih projekata iz istorije umetnosti, izloženo je na štandu \\\"Data presa\\\", gde se čitaoci mogu prošetati kroz ovaj svojevrsni virtuelni muzej.   PROČITAJTE JOŠ:  Savršena smotra odbrane jezika (FOTO+VIDEO)    Tačnije, prelistati delo u koga je tim od 100 kustosa, profesora, istraživača i urednika, uložio 10 godina rada, a prvobitno ga je 2011. godine objavio \\\"Fejdon pres\\\". U njemu je obuhvaćeno ljudsko stvaralaštvo, od nastanka čovečanstva do prve decenije 21. veka. Iz Srbije u Muzeju umetnosti izložena su dva dela - skulptura \\\"Praroditeljka\\\" iz Lepenskog vira i fotografski zapis performansa \\\"Ritam 5\\\" Marine Abramović. Ovaj \\\"muzej među koricama\\\", podeljen je na 25 odeljenja, sa 452 galerije.\', \'http://www.novosti.rs/vesti/kultura.71.html:692341-Muzej-umetnosti-jedan-od-najluksuznijih-naslova-VIDEO\'),\r\n', '2017-10-31 11:09:06'),
+(3192, 1, 'Blic', 'Upoznajte najbolje od najgorih: Najgledanija španska komedija \\\"Junačine\\\" od sutra u bioskopima', '\"Junačine\\\" su rediteljski debi Hoakina Mazona, koji karikira čuvene akcione heroje sa velikog platna. Veštim humorom i odličnom glumačkom postavom, reditelj je pobrao sjajne kritike, a film je ocenjen kao osveženje u španskoj kinematografiji.\', \'http://www.blic.rs/kultura/vesti/upoznajte-najbolje-od-najgorih-najgledanija-spanska-komedija-junacine-od-sutra-u/mft023m\'),\r\n', '2017-11-08 10:07:07');
 
 -- --------------------------------------------------------
 
@@ -169,10 +202,10 @@ INSERT INTO `products` (`id`, `brand_id`, `title`, `description`, `specification
 (39, 1, 'iPhone6 S', 'iPhone6 S', '', '39999.99', 12, 1, 0, '0.00', '2016-03-21 18:00:00'),
 (40, 1, 'iPhone6 SE', 'iPhone6 SE', '', '37999.99', 11, 1, 0, '0.00', '2016-03-21 18:00:00'),
 (41, 1, 'iPhone5', 'iPhone5', '', '32999.99', 10, 1, 0, '0.00', '2016-03-21 18:00:00'),
-(42, NULL, 'Masina za sivenje', 'Masina za sivenje', 'Masina za sivenje', '1200.00', 1, NULL, 0, '0.00', '2017-10-28 13:21:00'),
-(43, NULL, 'Televizor 8X56P', 'Televizor 8X56P', NULL, '11800.00', 36, 2, 0, '0.00', '2017-10-28 13:21:00'),
-(44, 1, 'iPod Nano', 'iPod Nano', NULL, '9800.00', 3, NULL, 0, '0.00', '2017-10-28 13:21:00'),
-(45, 2, 'Pegla 1200W', 'Pegla 1200W', NULL, '3200.00', 1, 99, 0, '0.00', '2017-10-28 13:21:00');
+(42, NULL, 'Masina za sivenje', 'Masina za sivenje', 'Masina za sivenje', '1200.00', 1, NULL, 0, '0.00', '2017-11-13 08:22:20'),
+(43, NULL, 'Televizor 8X56P', 'Televizor 8X56P', NULL, '11800.00', 36, 2, 0, '0.00', '2017-11-20 07:19:15'),
+(44, 1, 'iPod Nano', 'iPod Nano', NULL, '9800.00', 3, NULL, 0, '0.00', '2017-11-14 05:12:12'),
+(45, 2, 'Pegla 1200W', 'Pegla 1200W', NULL, '3200.00', 1, 99, 0, '0.00', '2017-11-14 08:19:18');
 
 -- --------------------------------------------------------
 
@@ -193,12 +226,37 @@ CREATE TABLE `product_tags` (
 INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 (1, 39, 1),
 (2, 39, 2),
-(3, 39, 4),
+(3, 39, 5),
 (4, 22, 2),
-(5, 22, 4),
-(6, 31, 5),
-(7, 11, 2),
-(8, 11, 3);
+(5, 22, 5),
+(6, 22, 2),
+(7, 22, 5),
+(8, 31, 4),
+(10, 11, 2),
+(11, 11, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sections`
+--
+
+CREATE TABLE `sections` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sections`
+--
+
+INSERT INTO `sections` (`id`, `title`) VALUES
+(1, 'Kultura'),
+(2, 'Zanimljivosti'),
+(3, 'Sport'),
+(4, 'Svet'),
+(5, 'Zivot'),
+(6, 'Ekonomija');
 
 -- --------------------------------------------------------
 
@@ -216,11 +274,11 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`id`, `title`) VALUES
-(1, 'Najprodavanije'),
-(2, 'Ekstra kvalitet'),
-(3, 'Pobednik sajma tehnike'),
-(4, 'Garancija 2 god.'),
-(5, 'Garancija 5 god.');
+(1, 'Najprodavaniji'),
+(2, 'Ekstra Kvalitet'),
+(3, 'Pobednik Sajma Tehnike'),
+(4, 'Garancija 5 Godina'),
+(5, 'Garancija 2 Godine');
 
 --
 -- Indexes for dumped tables
@@ -245,6 +303,13 @@ ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `section_id` (`section_id`);
+
+--
 -- Indexes for table `polaznici`
 --
 ALTER TABLE `polaznici`
@@ -265,6 +330,12 @@ ALTER TABLE `product_tags`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sections`
+--
+ALTER TABLE `sections`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
@@ -279,36 +350,56 @@ ALTER TABLE `tags`
 --
 ALTER TABLE `brands`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3193;
+
 --
 -- AUTO_INCREMENT for table `polaznici`
 --
 ALTER TABLE `polaznici`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
 --
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `sections`
+--
+ALTER TABLE `sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
