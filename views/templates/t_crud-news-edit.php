@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form action="" method="post" class="form-horizontal">
+                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                     <input type="hidden" name="task" value="save">
 
                     <fieldset>
@@ -91,19 +91,19 @@
                         <legend>Photo</legend>
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
-                                <img src="/skins/tema/img/portfolio/enkel-home-blue.png" class="img-responsive">
+                                <img src="/uploads/news/<?php echo htmlspecialchars($new['photo_filename']); ?>" class="img-responsive">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Change Photo</label>  
                             <div class="col-md-5">
-                                <input type="file" class="form-control" name="image">
+                                <input type="file" class="form-control" name="photo">
 
                             </div>
                             <div class="col-md-4">
-                                <?php if (!empty($formErrors["image"])) { ?>
+                                <?php if (!empty($formErrors["photo"])) { ?>
                                     <ul style="color: red">
-                                        <?php foreach ($formErrors["image"] as $errorMessage) { ?>
+                                        <?php foreach ($formErrors["photo"] as $errorMessage) { ?>
                                             <li class="error"><?php echo $errorMessage; ?></li>
                                         <?php } ?>
                                     </ul>

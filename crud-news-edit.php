@@ -79,7 +79,25 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
     } else {
         $formErrors["content"][] = "Polje content je obavezno";
     }
+    if (isset($_FILES["photo"]) && empty($_FILES["photo"]['error'])) {
+        //Filtering
+        $photoFileTmpPath = $_FILES["photo"]["tmp_name"];
+        $photoFileName = basename($_FILES["photo"]["name"]);
+        $photoFileMime = mime_content_type($_FILES["photo"]["tmp_name"]);
+        $photoFileSize = $_FILES["photo"]["size"];
 
+        //validation
+        $photoFileAllowedMime = array("image/jpeg", "image/png", "image/gif");
+        $photoFileMaxSize = 5 * 1024 * 1024; // 1 MB
+
+        if (!in_array($photoFileMime, $photoFileAllowedMime)) {
+            $formErrors["photo"][] = "Fajl photo je u neispravnom formatu";
+        }
+
+        if ($photoFileSize > $photoFileMaxSize) {
+            $formErrors["photo"][] = "Fajl photo prelazi maksimalnu dozvoljenu velicinu";
+        }
+    }
 
 
 
@@ -90,10 +108,37 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 
     if (empty($formErrors)) {
         newsUpdateOneById($new['id'], $formData);
+        if (isset($_FILES['photo'])) {
+            //obrisati staru sliku
+            $oldPhotoPath = __DIR__ . '/uploads/news/' . $new['photo_filename'];
+            if (is_file($oldPhotoPath)) {
+                unlink($oldPhotoPath);
+            }
+
+            //premestit novu sliku
+            $newPhotoFileName = $new['id'] . '_' . $photoFileName;
+
+            $destinationPath = __DIR__ . '/uploads/news/' . $newPhotoFileName;
 
 
-        header('Location: /crud-news-list.php');
-        die();
+            if (move_uploaded_file($photoFileTmpPath, $destinationPath)) {
+
+                newsUpdatePhotoFileName($new['id'], $newPhotoFileName);
+
+
+                header('Location: /crud-news-list.php');
+                die();
+            } else {
+                $formErrors["photo"][] = "Doslo je do greske prilikom snimanja fajla photo";
+            }
+
+
+
+            //update nov photo_file_name
+        } else {
+            header('Location: /crud-news-list.php');
+            die();
+        }
     }
 }
 

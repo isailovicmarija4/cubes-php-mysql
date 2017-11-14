@@ -93,3 +93,9 @@ function newsGetCount() {
 	
 	return dbFetchColumn($query);
 }
+function newsUpdatePhotoFileName($id, $photoFileName) {
+    $query = "UPDATE `news` SET "
+            . " `photo_filename`='" . dbEscape($photoFileName) . "'  "
+            . "WHERE id='" . dbEscape($id) . "'";
+    return dbQuery($query);
+}
