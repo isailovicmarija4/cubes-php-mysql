@@ -19,7 +19,10 @@ if (empty($product)) {
 	die('Izabrali ste nepostojec proizvod');
 }
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
-	
+	$photoFilePath=__DIR__ . '/uploads/products/' . $product['photo_file_name'];
+        if(file_exists($photoFilePath)){
+            unlink($photoFilePath);
+        }
 	productsDeleteOneById($product['id']);
 
 	header('Location: /crud-product-list.php');
