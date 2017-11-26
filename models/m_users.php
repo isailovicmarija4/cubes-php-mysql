@@ -146,3 +146,12 @@ function usersFetchOneByUserName($username) {
 	
 	return dbFetchOne($query);
 }
+
+function usersNewPassword($id,$password) {
+	
+	$query = "UPDATE `users` "
+                . " SET `password` = '" . dbEscape(md5($password)) . "' "
+		. "WHERE `users`.`id` = '" . dbEscape($id) . "'";
+	
+	return dbQuery($query);
+}

@@ -22,6 +22,7 @@ if (empty($new)) {
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 
     newsDeleteOneById($id);
+$_SESSION['system_message']="Uspesno ste izbrisali vest";
 
     header('Location: /crud-news-list.php');
     die();

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 17, 2017 at 04:06 PM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 24, 2017 at 07:00 PM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,8 +41,8 @@ CREATE TABLE `brands` (
 INSERT INTO `brands` (`id`, `title`, `website_url`) VALUES
 (1, 'Apple', ''),
 (2, 'Beko', ''),
-(3, 'Bosh aa', 'http://cubes.edu.rs'),
-(4, 'Gorenje2', ''),
+(3, 'Bosh', ''),
+(4, 'Gorenje', ''),
 (5, 'HTC', ''),
 (6, 'Huawei', ''),
 (7, 'LG', ''),
@@ -128,7 +128,8 @@ INSERT INTO `news` (`id`, `section_id`, `title`, `photo_filename`, `description`
 (3190, 6, 'B92', NULL, 'U GSP novi validatori, spremite i platne kartice', 'Do kraja godine vožnja u gradskom prevozu će moći da se plaća bezkontaktnim platnim karticama, izjavio je gradski menadžer Goran Vesić.\\\"Kako bi se povećao udeo bezgotovinskog plaćanja, Grad je preduzeo niz aktivnosti. Do kraja godine ćemo početi da primamo beskontaktne platne kartice u javnom prevozu. I ta kartica će postati i platna kartica\\\", rekao je Vesić i napomenuo da u Beogradu više od 500.000 ljudi koristi Bus plus karticu za vožnju.\', \'http://www.b92.net/biz/vesti/srbija.php?yyyy=2017&mm=10&dd=25&nav_id=1318050', '2017-09-04 13:07:05'),
 (3191, 1, 'Novosti', NULL, '\"Muzej umetnosti\\\" jedan od najluksuznijih naslova (VIDEO)', 'TEŠKA oko 10 kilograma, visoka 42, a široka 32,5 santimetara, na gotovo 1.000 strana, sa više od 2.700 reprezentativnih umetničkih dela iz 650 zemalja, knjiga \\\"Muzej umetnosti\\\", sigurno je jedan od najluksuznijih naslova ovogodišnjeg Sajma. Prvo izdanje na srpskom jeziku, jednog od najambicioznijih svetskih izdavačkih projekata iz istorije umetnosti, izloženo je na štandu \\\"Data presa\\\", gde se čitaoci mogu prošetati kroz ovaj svojevrsni virtuelni muzej.   PROČITAJTE JOŠ:  Savršena smotra odbrane jezika (FOTO+VIDEO)    Tačnije, prelistati delo u koga je tim od 100 kustosa, profesora, istraživača i urednika, uložio 10 godina rada, a prvobitno ga je 2011. godine objavio \\\"Fejdon pres\\\". U njemu je obuhvaćeno ljudsko stvaralaštvo, od nastanka čovečanstva do prve decenije 21. veka. Iz Srbije u Muzeju umetnosti izložena su dva dela - skulptura \\\"Praroditeljka\\\" iz Lepenskog vira i fotografski zapis performansa \\\"Ritam 5\\\" Marine Abramović. Ovaj \\\"muzej među koricama\\\", podeljen je na 25 odeljenja, sa 452 galerije.\', \'http://www.novosti.rs/vesti/kultura.71.html:692341-Muzej-umetnosti-jedan-od-najluksuznijih-naslova-VIDEO\'),\r\n', '2017-10-31 11:09:06'),
 (3192, 1, 'Blic', NULL, 'Upoznajte najbolje od najgorih: Najgledanija španska komedija \\\"Junačine\\\" od sutra u bioskopima', '\"Junačine\\\" su rediteljski debi Hoakina Mazona, koji karikira čuvene akcione heroje sa velikog platna. Veštim humorom i odličnom glumačkom postavom, reditelj je pobrao sjajne kritike, a film je ocenjen kao osveženje u španskoj kinematografiji.\', \'http://www.blic.rs/kultura/vesti/upoznajte-najbolje-od-najgorih-najgledanija-spanska-komedija-junacine-od-sutra-u/mft023m\'),\r\n', '2017-11-08 10:07:07'),
-(3195, 1, 'Vecernje novosti', '3195_14-drvo_620x0.jpg', 'MoÄ‡ poetike drveta', 'PET decenija stvaralaÅ¡tva vajara, istoriÄara umetnosti i teoretiÄara vizuelne kulture Koste BogdanoviÄ‡a (1930-2012), biÄ‡e predstavljeno izborom trideset skulptura i reljefa, na izloÅ¾bi koja Ä‡e biti otvorena veÄeras u 19 Äasova u Galeriji 212. Izbor radova iz njegovog bogatog opusa, nastalih u periodu od 1960. do 2012, uglavnom u drvetu, napravio je njegov sin, magistar istorije umetnosti Marko BogdanoviÄ‡.\r\n\r\n- Vajar Kosta BogdanoviÄ‡ je od poÄetka svog stvaralaÅ¡tva uvideo vaÅ¾nost izbora materijala kao polazne taÄke iz koje nastaje umetniÄko delo - objaÅ¡njava Marko BogdanoviÄ‡.', NULL);
+(3195, 1, 'Vecernje novosti', '3195_14-drvo_620x0.jpg', 'MoÄ‡ poetike drveta', 'PET decenija stvaralaÅ¡tva vajara, istoriÄara umetnosti i teoretiÄara vizuelne kulture Koste BogdanoviÄ‡a (1930-2012), biÄ‡e predstavljeno izborom trideset skulptura i reljefa, na izloÅ¾bi koja Ä‡e biti otvorena veÄeras u 19 Äasova u Galeriji 212. Izbor radova iz njegovog bogatog opusa, nastalih u periodu od 1960. do 2012, uglavnom u drvetu, napravio je njegov sin, magistar istorije umetnosti Marko BogdanoviÄ‡.\r\n\r\n- Vajar Kosta BogdanoviÄ‡ je od poÄetka svog stvaralaÅ¡tva uvideo vaÅ¾nost izbora materijala kao polazne taÄke iz koje nastaje umetniÄko delo - objaÅ¡njava Marko BogdanoviÄ‡.', NULL),
+(3196, 6, 'wew', NULL, '', 'wwewwwwwwww', '2017-11-24 16:04:06');
 
 -- --------------------------------------------------------
 
@@ -175,9 +176,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `brand_id`, `title`, `photo_file_name`, `description`, `specification`, `price`, `quantity`, `category_id`, `on_sale`, `discount`, `created_at`) VALUES
-(7, 1, 'Apple iPhone7 32GB', NULL, 'Mobilni Telefon Apple iPhone7 32GB', '', '98546.21', 23, 1, 0, '0.00', '2016-06-12 12:53:00'),
+(7, 1, 'Apple iPhone7 32GB', '7_index.jpg', 'Mobilni Telefon Apple iPhone7 32GB', '', '98546.21', 23, 1, 0, '0.00', '2016-06-12 12:53:00'),
 (8, 1, 'Apple iPhone7 64GB', NULL, 'Mobilni Telefon Apple iPhone7 64GB', '', '112345.12', 2, 1, 0, '0.00', '2016-12-13 13:53:00'),
-(9, 1, 'Apple iPhone7 32GB Gold', NULL, 'Mobilni Telefon Apple iPhone7 32GB Gold', '', '101234.23', 1, 1, 0, '0.00', '2016-03-14 14:53:00'),
+(9, 1, 'Appleqw iPhone7 32GB Gold', NULL, 'Mobilni Telefon Apple iPhone7 32GB Gold', '', '101234.23', 1, 1, 0, '0.00', '2016-03-14 14:53:00'),
 (10, 1, 'Apple iPhone8 32GB', NULL, 'Mobilni Telefon Apple iPhone8 32GB', '', '127880.39', 12, 1, 1, '15.00', '2017-04-15 15:53:00'),
 (11, 1, 'Apple iPhone8 64GB', NULL, 'Mobilni Telefon Apple iPhone8 64GB', '', '151339.32', 2, 1, 0, '0.00', '2017-06-16 16:53:00'),
 (12, 1, 'Apple iPhone8 32GB Gold', NULL, 'Mobilni Telefon Apple iPhone8 32GB Gold', '', '161323.37', 0, 1, 0, '0.00', '2017-08-17 17:53:00'),
@@ -208,7 +209,9 @@ INSERT INTO `products` (`id`, `brand_id`, `title`, `photo_file_name`, `descripti
 (42, NULL, 'Masina za sivenje', NULL, 'Masina za sivenje', 'Masina za sivenje', '1200.00', 1, NULL, 0, '0.00', '2017-11-13 08:22:20'),
 (43, NULL, 'Televizor 8X56P', NULL, 'Televizor 8X56P', NULL, '11800.00', 36, 2, 0, '0.00', '2017-11-20 07:19:15'),
 (44, 1, 'iPod Nano', NULL, 'iPod Nano', NULL, '9800.00', 3, NULL, 0, '0.00', '2017-11-14 05:12:12'),
-(45, 2, 'Pegla 1200W', NULL, 'Pegla 1200W', NULL, '3200.00', 1, 99, 0, '0.00', '2017-11-14 08:19:18');
+(45, 2, 'Pegla 1200W', NULL, 'Pegla 1200W', NULL, '3200.00', 1, 99, 0, '0.00', '2017-11-14 08:19:18'),
+(46, 4, 'Frizidereee OBR153', NULL, 'samostalni frizider', '', '153234.00', 2, 3, 1, '23.00', '2017-11-17 07:18:17'),
+(50, 4, 'wwqq', '50_q.jpg', '', '', '344444.00', 0, 3, 0, '0.00', '2017-11-24 16:08:42');
 
 -- --------------------------------------------------------
 
@@ -304,8 +307,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `first_name`, `last_name`, `created_at`) VALUES
-(1, 'isailovic.marija', 'd5908e4aa76277878259ed57c19c5f78', 'isailovic.marija@gmail.com', 'Marijaa', 'Isailovic', '2017-11-17 14:01:07'),
-(3, 'cubes', 'cubes', 'cubes@gmail.com', 'Cubes', 'Cubes', '2017-11-17 14:45:28');
+(3, 'cubes', 'd5908e4aa76277878259ed57c19c5f78', 'cubes@gmail.com', 'Cubes', 'Cubes', '2017-11-17 14:45:28');
 
 --
 -- Indexes for dumped tables
@@ -384,51 +386,61 @@ ALTER TABLE `users`
 --
 ALTER TABLE `brands`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3196;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3197;
+
 --
 -- AUTO_INCREMENT for table `polaznici`
 --
 ALTER TABLE `polaznici`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
 --
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

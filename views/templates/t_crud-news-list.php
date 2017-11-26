@@ -25,43 +25,52 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">		
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Section</th>
-                            <th>Title</th>
-                            <th>Created At</th>
-                            <th class="actions text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($news as $new) { ?>
-                            <tr>
-                                <td>
-                                    #<?php echo htmlspecialchars($new['id']); ?> 
-                                </td>
-                                <td>
-                                    <?php echo htmlspecialchars($new['section_title']); ?> 
-                                </td>
-                                <td>
-                                    <?php echo htmlspecialchars($new['title']); ?> 
-                                </td>
-                                <td>
-                                    <?php echo htmlspecialchars($new['created_at']); ?> 
-                                </td>
-                                <td class="text-center">
-                                    <div class="btn-group">
-                                        <a href="/crud-news-edit.php?id=<?php echo htmlspecialchars($new['id']); ?> " class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                                        <a href="/crud-news-delete.php?id=<?php echo htmlspecialchars($new['id']); ?> " class="btn btn-default"><i class="fa fa-trash"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+            <div class="col-md-12">	
+                <?php if (!empty($systemMessage)) { ?>
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <?php echo htmlspecialchars($systemMessage); ?>
+                    </div>
+
+                <?php } ?>
+                <div class="row">
+                    <div class="col-md-12">		
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Section</th>
+                                    <th>Title</th>
+                                    <th>Created At</th>
+                                    <th class="actions text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($news as $new) { ?>
+                                    <tr>
+                                        <td>
+                                            #<?php echo htmlspecialchars($new['id']); ?> 
+                                        </td>
+                                        <td>
+                                            <?php echo htmlspecialchars($new['section_title']); ?> 
+                                        </td>
+                                        <td>
+                                            <?php echo htmlspecialchars($new['title']); ?> 
+                                        </td>
+                                        <td>
+                                            <?php echo htmlspecialchars($new['created_at']); ?> 
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <a href="/crud-news-edit.php?id=<?php echo htmlspecialchars($new['id']); ?> " class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                                <a href="/crud-news-delete.php?id=<?php echo htmlspecialchars($new['id']); ?> " class="btn btn-default"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>

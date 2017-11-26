@@ -98,3 +98,12 @@ function brandsGetList(){
     return $brandList;
     
 }
+function brandsRandomFetchAll() {
+	$query = "SELECT `brands`.* FROM `brands` "
+                . "ORDER BY RAND () "
+                . "LIMIT 6 ";
+       
+	
+	
+	return  dbFetchAll($query);
+}

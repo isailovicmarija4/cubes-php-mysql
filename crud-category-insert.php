@@ -99,7 +99,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	if (empty($formErrors)) {
             $newCategoryId=categoriesInsertOne($formData);
             //vraca poslednjin id koji je unesen
-            
+            $_SESSION['system_message']="Uspesno ste dodali novu kategoriju ";
             header('Location: /crud-category-list.php');
 		die();
             

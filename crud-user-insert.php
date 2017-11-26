@@ -138,7 +138,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
            ////posto nemamo u bazi polje confirm ,moramo ga izbaciti iz formData
 		//Uradi akciju koju je korisnik trazio
 		$newUserId = usersInsertOne($formData);
-			
+		    $_SESSION['system_message']="Uspesno ste dodali novog korisnika";	
 		header('Location: /crud-user-list.php');
 		die();
 	}

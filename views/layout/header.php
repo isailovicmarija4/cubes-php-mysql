@@ -1,7 +1,10 @@
 <?php require_once __DIR__ . '/../../models/m_users.php'; ?>
 <?php require_once __DIR__ . '/../../models/m_categories.php'; ?>
-<?php require_once __DIR__ . '/../../models/m_sections.php';
-?>
+<?php require_once __DIR__ . '/../../models/m_sections.php'; ?>
+<?php require_once __DIR__ . '/../../models/m_brands.php'; ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -79,6 +82,19 @@
 
                                         </ul>
                                     </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brend</a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <?php foreach (brandsFetchAll() as $brandInMenu) { ?>
+                                                <li>
+                                                    <a href="/brand.php?id=<?php echo htmlspecialchars($brandInMenu['id']); ?>">
+                                                        <?php echo htmlspecialchars($brandInMenu['title']); ?>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+
+                                        </ul>
+                                    </li>
                                     <li>
                                         <a href="/all-news.php">Sve vesti</a>
                                     </li>
@@ -113,8 +129,9 @@
                                                 <li><a href="#">Crud Tags</a></li>
                                                 <li><a href="/crud-news-list.php">Crud News</a></li>
                                                 <li><a href="/crud-section-list.php">Crud Sections</a></li>
-                                                  <li><a href="/crud-user-list.php">Crud Users</a></li>
+                                                <li><a href="/crud-user-list.php">Crud Users</a></li>
                                                 <li><hr></li>
+                                                <a href="/profile-preview.php">Profile</a>
                                                 <li><a href="/logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
                                             </ul>
                                         </li>

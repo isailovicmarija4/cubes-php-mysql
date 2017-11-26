@@ -109,7 +109,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 	if (empty($formErrors)) {
             categoriesUpdateOneById($category['id'], $formData);
 		
-            
+            $_SESSION['system_message']="Uspesno ste izmenili kategoriju ";
             header('Location: /crud-category-list.php');
 		die();
             

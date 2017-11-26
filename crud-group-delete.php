@@ -21,7 +21,7 @@ if (empty($group)) {
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 	
 	groupsDeleteOneById($id);
-
+$_SESSION['system_message']="Uspesno ste izbrisali grupu ";
 	header('Location: /crud-group-list.php');
 	die();
 }

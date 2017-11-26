@@ -56,7 +56,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 		//Uradi akciju koju je korisnik trazio
 		
 		groupsUpdateOneById($group['id'], $formData);
-		
+		$_SESSION['system_message']="Uspesno ste izmenili grupu ";
 		header('Location: /crud-group-list.php');
 		die();
 	}

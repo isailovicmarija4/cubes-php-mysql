@@ -8,6 +8,11 @@ if(!isUserLoggedIn()){
 
 
 require_once __DIR__ . '/models/m_groups.php';
+$systemMessage = '';
+if (isset($_SESSION['system_message'])) {
+	$systemMessage = $_SESSION['system_message'];
+	unset($_SESSION['system_message']);
+}
 
 $groups=groupsFetchAll();
 

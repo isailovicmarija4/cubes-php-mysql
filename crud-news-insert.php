@@ -108,7 +108,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 
         if (move_uploaded_file($photoFileTmpPath, $destinationPath)) {
             newsUpdatePhotoFileName($newNewsId, $newNewsPhotoFileName);
-
+ $_SESSION['system_message']="Uspesno ste dodali novu vest";
 
             header('Location: /crud-news-list.php');
             die();

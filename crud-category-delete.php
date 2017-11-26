@@ -21,7 +21,7 @@ if (empty($category)) {
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
 	
 	categoriesDeleteOneById($id);
-
+$_SESSION['system_message']="Uspesno ste izbrisali kategoriju ";
 	header('Location: /crud-category-list.php');
 	die();
 }

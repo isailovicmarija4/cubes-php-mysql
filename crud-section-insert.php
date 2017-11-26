@@ -42,7 +42,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
         //Uradi akciju koju je korisnik trazio
 
         $newGroupId = sectionsInsertOne($formData);
-
+  $_SESSION['system_message']="Uspesno ste dodali novu sekciju";	
         header('Location: /crud-section-list.php');
         die();
     }

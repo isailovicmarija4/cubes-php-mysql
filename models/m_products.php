@@ -103,8 +103,8 @@ function productsGetCount() {
 }
 function productsUpdatePhotoFileName($id,$photoFileName){
     $query="UPDATE `products` SET "
-            . " `photo_file_name`='" . dbEscape($photoFileName) . "'  "
-            . "WHERE id='" . dbEscape($id) . "'";
+            . " `photo_file_name` = '" . dbEscape($photoFileName) . "'  "
+            . "WHERE `id` = '" . dbEscape($id) . "'";
    return dbQuery($query);
     
 }
@@ -157,6 +157,43 @@ function productsFetchAllByCategoryByPage($categoryId,$page,$rowsPerPages){
                 . "LEFT JOIN `categories` ON `products`.`category_id`=`categories`.`id`   "
                 . "LEFT JOIN `brands` ON `products`.`brand_id`=`brands`.`id`  "
             . "WHERE `products`.`category_id`='" . dbEscape($categoryId) . "'";
+     
+     
+     
+     
+     $limit=$rowsPerPages;
+    $offset=($page-1) * $rowsPerPages;
+    
+         $query .="  LIMIT " . $limit . "  OFFSET  " . $offset; 
+    
+    
+    
+    return dbFetchAll($query);
+    
+    
+}
+
+function productsGetCountByBrand($brandId){
+       $query = "SELECT "
+               . "COUNT(products.id)   "
+                . "FROM `products`  "
+                . "LEFT JOIN `categories` ON `products`.`category_id`=`categories`.`id`   "
+                . "LEFT JOIN `brands` ON `products`.`brand_id`=`brands`.`id`  "
+            . "WHERE `products`.`brand_id`='" . dbEscape($brandId) . "'";
+    
+    
+    return dbFetchColumn($query);
+    
+    
+}
+function productsFetchAllByBrandByPage($brandId,$page,$rowsPerPages){
+     $query = "SELECT `products`.* ,  "
+                . "`categories`.`title` AS `category_title`, "
+                . "`brands`.`title` AS `brand_title` "
+                . "FROM `products`  "
+                . "LEFT JOIN `categories` ON `products`.`category_id`=`categories`.`id`   "
+                . "LEFT JOIN `brands` ON `products`.`brand_id`=`brands`.`id`  "
+            . "WHERE `products`.`brand_id`='" . dbEscape($brandId) . "'";
      
      
      

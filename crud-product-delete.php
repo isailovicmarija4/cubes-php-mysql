@@ -24,7 +24,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "delete") {
             unlink($photoFilePath);
         }
 	productsDeleteOneById($product['id']);
-
+  $_SESSION['system_message']="Uspesno ste izbrisali proizvod";
 	header('Location: /crud-product-list.php');
 	die();
 }

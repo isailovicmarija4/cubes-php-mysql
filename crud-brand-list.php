@@ -6,6 +6,11 @@ if(!isUserLoggedIn()){
 	die();
 }
 require_once __DIR__ . '/models/m_brands.php';
+$systemMessage = '';
+if (isset($_SESSION['system_message'])) {
+	$systemMessage = $_SESSION['system_message'];
+	unset($_SESSION['system_message']);
+}
 
 $brands = brandsFetchAll();
 

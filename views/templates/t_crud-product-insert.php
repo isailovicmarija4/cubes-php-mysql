@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-md-12">
                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" >
-                    <input type="hidden" name="task" value="insert">e="">
+                    <input type="hidden" name="task" value="insert">
 
                     <fieldset>
                         <legend>General Data</legend>
