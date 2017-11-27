@@ -73,6 +73,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
     //Ukoliko nema gresaka 
     if (empty($formErrors)) {
         //Uradi akciju koju je korisnik trazio
+        
         usersNewPassword($userProfile['id'], $formData['password']);
 
         $_SESSION['system_message'] = 'Uspesno ste promenili password';

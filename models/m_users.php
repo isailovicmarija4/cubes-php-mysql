@@ -148,9 +148,9 @@ function usersFetchOneByUserName($username) {
 }
 
 function usersNewPassword($id,$password) {
-	
+	$newPassword=md5($password);
 	$query = "UPDATE `users` "
-                . " SET `password` = '" . dbEscape(md5($password)) . "' "
+                . " SET `password` = '" . dbEscape($newPassword) . "' "
 		. "WHERE `users`.`id` = '" . dbEscape($id) . "'";
 	
 	return dbQuery($query);
